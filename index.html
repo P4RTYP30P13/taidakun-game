@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>怠惰くんの一週間</title>
+
+    <!-- フォント -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+
+<body>
+
+<div id="game">
+
+    <div id="game-screen">
+
+
+        <!-- =================================
+             背景
+        ================================== -->
+
+        <div id="background">
+
+            <div id="background-placeholder">
+                【ここに背景画像】
+            </div>
+
+        </div>
+
+
+        <!-- =================================
+             曜日・時間
+        ================================== -->
+
+        <div id="date-display">
+
+            <span id="day">
+                月曜日
+            </span>
+
+            <span id="time">
+                朝
+            </span>
+
+        </div>
+
+
+        <!-- =================================
+             ステータス
+        ================================== -->
+
+        <div id="status">
+
+            <h2>ステータス</h2>
+
+
+            <div class="status-row">
+
+                <span>おなか</span>
+
+                <span id="hunger-value">
+                    2 / 10
+                </span>
+
+            </div>
+
+            <div class="status-bar">
+
+                <div id="hunger-bar"></div>
+
+            </div>
+
+
+
+            <div class="status-row">
+
+                <span>しゅみ</span>
+
+                <span id="energy-value">
+                    2 / 10
+                </span>
+
+            </div>
+
+            <div class="status-bar">
+
+                <div id="energy-bar"></div>
+
+            </div>
+
+
+
+            <div class="status-row">
+
+                <span>すいみん</span>
+
+                <span id="sleep-value">
+                    2 / 10
+                </span>
+
+            </div>
+
+            <div class="status-bar">
+
+                <div id="sleep-bar"></div>
+
+            </div>
+
+
+
+            <div class="status-row">
+
+                <span>こころ</span>
+
+                <span id="heart-value">
+                    25 / 100
+                </span>
+
+            </div>
+
+            <div class="status-bar">
+
+                <div id="heart-bar"></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================
+             行動選択
+        ================================== -->
+
+        <div id="actions">
+
+            <button id="eat-button">
+                ごはん
+            </button>
+
+            <button id="out-button">
+                しゅみ
+            </button>
+
+            <button id="sleep-button">
+                ねる
+            </button>
+
+        </div>
+
+
+        <!-- =================================
+             怠惰くん
+        ================================== -->
+
+        <div id="character">
+
+            <span id="character-placeholder">
+                【ここに怠惰くんの画像】
+            </span>
+
+            <img id="character-image"
+                 src=""
+                 alt="怠惰くん">
+
+        </div>
+
+
+        <!-- =================================
+             メッセージ
+             ★下の1個だけ
+        ================================== -->
+
+        <div id="message-box">
+
+            <span id="message">
+                行動を選んでね。
+            </span>
+
+        </div>
+
+
+        <!-- =================================
+             次のターン
+        ================================== -->
+
+        <button id="next-button"
+                class="hidden">
+
+            クリックして次のターンへ
+
+        </button>
+
+
+        <!-- =================================
+             エンディング
+        ================================== -->
+
+        <div id="ending-screen"
+             class="hidden">
+
+
+            <div id="ending-background">
+
+                <span id="ending-background-placeholder">
+                    【ここにエンディング背景画像】
+                </span>
+
+            </div>
+
+
+            <div id="ending-content">
+
+                <h1 id="ending-title">
+                    END
+                </h1>
+
+
+                <p id="ending-message">
+                </p>
+
+
+                <p>
+
+                    最終的なこころ：
+
+                    <span id="ending-heart">
+                        0
+                    </span>
+
+                    / 100
+
+                </p>
+
+
+                <button id="restart-button">
+
+                    人生を続ける
+
+                </button>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<script src="game.js"></script>
+
+</body>
+
+</html>

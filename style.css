@@ -1,0 +1,909 @@
+/* ==================================================
+   基本設定
+================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+
+    /* ★★★ 枠外の色 ★★★ */
+
+    background: #ffffff;
+
+
+    color: #4b4038;
+
+
+    /* ★★★ フォント ★★★ */
+
+    font-family:
+        "りいクッキーお試し",
+        sans-serif;
+}
+
+
+
+/* ==================================================
+   ゲーム
+================================================== */
+
+#game {
+
+    width: 95vw;
+
+    max-width: 1200px;
+}
+
+
+
+/* ==================================================
+   ゲーム画面
+================================================== */
+
+#game-screen {
+
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 10;
+
+    min-height: 650px;
+
+    overflow: hidden;
+
+
+    border:
+        3px solid
+        #ff5050;
+
+    border-radius: 25px;
+
+    background: #60a5ff;
+}
+
+
+
+/* ==================================================
+   背景
+================================================== */
+
+#background {
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 1;
+
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+
+    background-color:
+        #62c0ff;
+
+
+    background-repeat:
+        no-repeat;
+
+    background-size:
+        cover;
+
+    background-position:
+        center;
+}
+
+
+#background-placeholder {
+
+    color: #313650;
+
+    font-weight: bold;
+
+    pointer-events: none;
+}
+
+
+
+/* ==================================================
+   曜日・時間
+================================================== */
+
+#date-display {
+
+    position: absolute;
+
+    z-index: 20;
+
+    top: 20px;
+
+    left: 3%;
+
+
+    display: flex;
+
+    gap: 10px;
+}
+
+
+#date-display span {
+
+    padding:
+        9px 16px;
+
+
+    background:
+        rgba(
+            255,
+            253,
+            242,
+            0.95
+        );
+
+
+    border:
+        2px solid
+        rgb(218, 82, 82);
+
+
+    border-radius: 12px;
+
+
+    font-size: 25px;
+
+    font-weight: bold;
+}
+
+
+
+/* ==================================================
+   ステータス
+================================================== */
+
+#status {
+
+    position: absolute;
+
+    z-index: 20;
+
+
+    top: 75px;
+
+    right: 3%;
+
+
+    width: 25%;
+
+
+    padding: 15px;
+
+
+    background:
+        rgba(
+            255,
+            253,
+            242,
+            0.95
+        );
+
+
+    border:
+        2px solid
+        #4b4038;
+
+
+    border-radius: 18px;
+}
+
+
+#status h2 {
+
+    margin:
+        0 0 12px 0;
+
+    font-size: 20px;
+}
+
+
+.status-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 9px;
+
+    font-size: 15px;
+
+    font-weight: bold;
+}
+
+
+.status-bar {
+
+    width: 100%;
+
+    height: 9px;
+
+    margin-top: 4px;
+
+
+    background:
+        #ddd3c4;
+
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+
+.status-bar div {
+
+    width: 20%;
+
+    height: 100%;
+
+    background:
+        #58a500;
+
+
+    transition:
+        width 0.3s;
+}
+
+
+#heart-bar {
+
+    background:
+        #ff8c8c;
+}
+
+
+
+/* ==================================================
+   行動ボタン
+================================================== */
+
+/*
+    ★ ステータスの左側
+*/
+
+#actions {
+
+    position: absolute;
+
+    z-index: 10;
+
+    top: 10%;
+
+    right: 30%;
+
+    width: 15%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+#actions button {
+
+    padding:
+        16px;
+
+
+    border:
+        3px solid
+        #4b4038;
+
+
+    border-radius: 15px;
+
+
+    background:
+        rgba(
+            255,
+            253,
+            242,
+            0.95
+        );
+
+
+    color:
+        #4b4038;
+
+
+    font-family:
+        inherit;
+
+
+    font-size:
+        22px;
+
+
+    font-weight:
+        bold;
+
+
+    cursor:
+        pointer;
+
+
+    transition:
+        0.15s;
+}
+
+
+#actions button:hover {
+
+    transform:
+        translateY(-3px);
+
+
+    background:
+        #ffffff;
+}
+
+
+
+/* ==================================================
+   怠惰くん
+================================================== */
+
+/*
+    ★★★★★★★★★★★★★★★★★★★★★★★★★
+
+    怠惰くんの位置
+
+    全ての画像がここに表示されます。
+
+    left / top / width を変更すると
+    全パターンの位置が一緒に変わります。
+
+    ★★★★★★★★★★★★★★★★★★★★★★★★★
+*/
+
+#character {
+
+    position: absolute;
+
+    z-index: 10;
+
+
+    left: 48%;
+
+    top: 60%;
+
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        );
+
+
+    width: 30%;
+
+    aspect-ratio:
+        1 / 1;
+
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+
+    text-align: center;
+
+
+    color:
+        #806f60;
+
+
+    font-weight:
+        bold;
+}
+
+
+#character-image {
+
+    width: 100%;
+
+    height: 100%;
+
+
+    object-fit:
+        contain;
+
+
+    display:
+        none;
+}
+
+
+
+/* ==================================================
+   メッセージ
+================================================== */
+
+#message-box {
+
+    position: absolute;
+
+    z-index: 20;
+
+
+    left: 50%;
+
+    bottom: 5%;
+
+
+    transform:
+        translateX(-50%);
+
+
+    width: 60%;
+
+
+    min-height: 65px;
+
+
+    padding:
+        15px 20px;
+
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+
+    background:
+        rgba(
+            255,
+            253,
+            242,
+            0.95
+        );
+
+
+    border:
+        3px solid
+        #d4295c;
+
+
+    border-radius:
+        18px;
+
+
+    text-align:
+        center;
+
+
+    font-size:
+        30px;
+
+
+    /*font-weight:
+        bold;*/
+
+
+    line-height:
+        1.5;
+}
+
+
+
+/* ==================================================
+   次のターンボタン
+================================================== */
+
+#next-button {
+
+    position: absolute;
+
+    z-index: 30;
+
+
+    left: 57%;
+
+    bottom: 68%;
+
+
+    transform:
+        translateX(-50%);
+
+
+    padding:
+        14px 25px;
+
+
+    border:
+        3px solid
+        #4b4038;
+
+
+    border-radius:
+        14px;
+
+
+    background:
+        rgba(
+            255,
+            253,
+            242,
+            0.98
+        );
+
+
+    color:
+        #4b4038;
+
+
+    font-family:
+        inherit;
+
+
+    font-size:
+        17px;
+
+
+    font-weight:
+        bold;
+
+
+    cursor:
+        pointer;
+}
+
+
+#next-button:hover {
+
+    transform:
+        translateX(-50%)
+        translateY(-3px);
+}
+
+
+
+/* ==================================================
+   共通
+================================================== */
+
+.hidden {
+
+    display:
+        none !important;
+}
+
+
+
+/* ==================================================
+   エンディング
+================================================== */
+
+#ending-screen {
+
+    position: absolute;
+
+    z-index: 100;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+}
+
+
+#ending-background {
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+
+    background-color:
+        #f5ead7;
+
+
+    background-size:
+        cover;
+
+
+    background-position:
+        center;
+}
+
+
+#ending-background-placeholder {
+
+    color:
+        #9b8a77;
+
+    font-weight:
+        bold;
+}
+
+
+#ending-content {
+
+    position: absolute;
+
+    z-index: 5;
+
+
+    left: 50%;
+
+    top: 50%;
+
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        );
+
+
+    width:
+        min(
+            560px,
+            85%
+        );
+
+
+    padding:
+        30px;
+
+
+    background:
+        rgba(
+            255,
+            250,
+            240,
+            0.96
+        );
+
+
+    border:
+        4px solid
+        #4b4038;
+
+
+    border-radius:
+        25px;
+
+
+    text-align:
+        center;
+}
+
+
+#ending-content h1 {
+
+    margin:
+        10px 0;
+
+    font-size:
+        32px;
+}
+
+
+#ending-content p {
+
+    white-space:
+        pre-line;
+
+
+    line-height:
+        1.8;
+
+
+    font-weight:
+        bold;
+}
+
+
+#ending-character {
+
+    width:
+        120px;
+
+    height:
+        120px;
+
+
+    margin:
+        0 auto 10px;
+
+
+    display:
+        flex;
+
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.5
+        );
+
+
+    border-radius:
+        15px;
+}
+
+
+#ending-character img {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+
+    object-fit:
+        contain;
+}
+
+
+#restart-button {
+
+    padding:
+        15px 30px;
+
+
+    border:
+        3px solid
+        #4b4038;
+
+
+    border-radius:
+        15px;
+
+
+    background:
+        #fffdf2;
+
+
+    color:
+        #4b4038;
+
+
+    font-family:
+        inherit;
+
+
+    font-size:
+        20px;
+
+
+    font-weight:
+        bold;
+
+
+    cursor:
+        pointer;
+}
+
+
+#restart-button:hover {
+
+    transform:
+        translateY(-3px);
+}
+
+
+
+/* ==================================================
+   スマホ
+================================================== */
+
+@media (max-width: 800px) {
+
+    #game-screen {
+
+        min-height:
+            620px;
+
+        height:
+            90vh;
+
+        aspect-ratio:
+            auto;
+    }
+
+
+    #status {
+
+        width:
+            35%;
+    }
+
+
+    #actions {
+
+        width:
+            28%;
+
+        right:
+            34%;
+    }
+
+
+    #actions button {
+
+        font-size:
+            17px;
+
+        padding:
+            12px;
+    }
+
+
+    #character {
+
+        left:
+            48%;
+
+        width:
+            38%;
+    }
+
+
+    #message-box {
+
+        width:
+            80%;
+    }
+
+}
